@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<link rel="stylesheet" href="../index.css">
+<body id="loginbody">
+    <div class="login-container">
+        <div class="login-box">
+            <h2>WELCOME</h2>
+            <form class="login-form" id="login-Form">
+                <input type="email" id="email" placeholder="Your email" required>
+                <input type="password" id="password" placeholder="Your password" required>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="rememberMe"> Remember me
+                    </label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit">Login</button>
+                <p class="register">Don't have an account? <a href="#">Register</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../index.js"></script>
+<script>
+    // JavaScript 代码放在这里
+    var loginForm = document.querySelector('.login-form');
+    var emailInput = document.querySelector('input[type="email"]');
+    var passwordInput = document.querySelector('input[type="password"]');
+
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var email = emailInput.value;
+        var password = passwordInput.value;
+
+        if (email && password) {
+            // 模拟登录成功，跳转到主页
+            window.location.href = '../index.html';
+        } else {
+            alert('请填写电子邮件和密码');
+        }
+    });
+</script>
+</html>
