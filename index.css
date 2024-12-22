@@ -26,10 +26,36 @@ header li{
     list-style: none;
     display: inline;
     margin-left: 1vw;
+    position: relative;
+    transition: background-color 0.3s ease;
 }
 header a{
     color: white;
     text-decoration: none;
+    padding: 5px 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+header li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+header a:hover,
+header a:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+header a:hover {
+    background-color: #555;
+    color: #f1c40f;
+    border-radius: 5px;
+}
+header a:active {
+    transform: scale(1.05);
+    transition: transform 0.1s ease;
+}
+header a.active {
+    color: #f1c40f;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .news{
     color: white;
@@ -340,9 +366,11 @@ background-color: #acacac;
 .logo div{
     position: relative;
     flex: 1 1 30%;
+    overflow: hidden;
 }
 .logo img{
   width: 100%;
+  transition: transform 0.3s ease;
 }
 .hovertext1{
     display: none;
@@ -410,23 +438,103 @@ background-color: #acacac;
     padding: 120px;
     white-space: nowrap;
 }
-.logo div:hover .hovertext1{
+.logo div:hover .hovertext1,
+.logo div:hover .hovertext2,
+.logo div:hover .hovertext3,
+.logo div:hover .hovertext4,
+.logo div:hover .hovertext5,
+.logo div:hover .hovertext6 {
     display: block;
+    animation: pixelate 0.1s;
 }
-.logo div:hover .hovertext2{
-    display: block;
+.logo div:hover img{
+    transform: scale(1.1);
 }
-.logo div:hover .hovertext3{
-    display: block;
+@keyframes pixelate {
+    0% {
+        padding: 0px;
+    }
+    100% {
+        padding: 120px;
+    }
 }
-.logo div:hover .hovertext4{
-    display: block;
+/* login */
+#loginbody{
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('./img/LOG.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.logo div:hover .hovertext5{
-    display: block;
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
-.logo div:hover .hovertext6{
-    display: block;
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.options a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+.register {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.register a {
+    color: #007BFF;
+    text-decoration: none;
 }
 /* 目录 */
 .menu{
