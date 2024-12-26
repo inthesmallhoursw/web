@@ -7,8 +7,32 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" id="menuCheckbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <li>
+              <a href="./index.html">
+                <label for="menuCheckbox" onclick="this.parentNode.click();">最新消息</label>
+              </a>
+            </li>
+            <li>
+              <a href="./html/product.html">
+                <label for="menuCheckbox" onclick="this.parentNode.click();">会员专区</label>
+              </a>
+            </li>
+            <li><label for="menuCheckbox"><a href="./html/location.html">门市据点</a></label></li>
+            <li><label for="menuCheckbox"><a href="./html/aboutme.html">关于我们</a></label></li>
+            <li>
+              <a href="./html/login.html" target="_blank">会员登录</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     <header>
-        <button class="menu">&#9776;</button>
         <h1>BreadTalk</h1>
         <nav>
             <ul>
