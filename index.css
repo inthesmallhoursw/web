@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 header{
     background-color: rgb(35,28,26,0.8);
@@ -61,7 +62,7 @@ header a.active {
     color: white;
     height: 95vh;
     width: 100%;
-    background-image: url(./img/01aqikkv0pu9ufnvhhisiq3633.jpg);
+    background-image: url(./img/index-1.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -173,7 +174,7 @@ footer{
     color: white;
     height: 95vh;
     width: 100%;
-    background-image: url(./img/151737258821625700.jpeg);
+    background-image: url(./img/product-1.jpeg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -309,7 +310,7 @@ background-color: #acacac;
     color: white;
     height: 95vh;
     width: 100%;
-    background-image: url(./img/f3da4afe0604417b24589bda3d1c2650output_00001.jpg);
+    background-image: url(./img/aboutme-1.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -538,18 +539,184 @@ background-color: #acacac;
     text-decoration: none;
 }
 /* 目录 */
-.menu{
-    display: none;
-    background-color: transparent;
-    color: white;
-    font-size: 35px;
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    border: none;
-    cursor: pointer;
+#menuToggle{
+   display: none;
+   position: fixed;
+   top: 25px;
+   left: 25px;
+   
+   z-index: 1;
+   
+   -webkit-user-select: none;
+   user-select: none;
+}
+#menuToggle a{
+   text-decoration: none;
+   color: #232323;
+   
+   transition: color 0.3s ease;
+}
+#menuToggle a:hover{
+   color: tomato;
+}
+#menuToggle input{
+   display: block;
+   width: 40px;
+   height: 32px;
+   position: absolute;
+   top: -7px;
+   left: -5px;
+   cursor: pointer;
+   opacity: 0; 
+   z-index: 2; 
+   -webkit-touch-callout: none;
+}
+ #menuToggle span{
+   display: block;
+   width: 33px;
+   height: 4px;
+   margin-bottom: 5px;
+   position: relative;
+   background: #cdcdcd;
+   border-radius: 3px;
+   z-index: 1;
+   transform-origin: 4px 0px;
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+               opacity 0.55s ease;
+}
+#menuToggle span:first-child{
+   transform-origin: 0% 0%;
+}
+#menuToggle span:nth-last-child(2){
+   transform-origin: 0% 100%;
+}
+#menuToggle input:checked ~ span{
+   opacity: 1;
+   transform: rotate(45deg) translate(-2px, -1px);
+   background: #232323;
+}
+#menuToggle input:checked ~ span:nth-last-child(3){
+   opacity: 0;
+   transform: rotate(0deg) scale(0.2, 0.2);
+}
+#menuToggle input:checked ~ span:nth-last-child(2){
+   transform: rotate(-45deg) translate(0, -1px);
+}
+#menu{
+   position: absolute;
+   max-width: 400px;
+   width: 100vw;
+   max-height: 100vh;
+   margin: -100px 0 0 -50px;
+   padding: 50px;
+   padding-top: 125px;
+   box-sizing: border-box;
+   overflow-y: auto;
+   background: #ededed;
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;
+   transform-origin: 0% 0%;
+   transform: translate(-100%, 0);
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+#menu li
+{
+   padding: 10px 0;
+   font-size: 22px;
+}
+ 
+#menu li label{
+   cursor: pointer;
+}
+#menuToggle input:checked ~ ul
+{
+   transform: none;
 }
 /* 响应式设计 */
+@media screen and (min-width: 360px) and (max-width:430px){
+    header ul{
+        display: none;
+    }
+    header h1{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #menuToggle{
+        display: block;
+    }
+    .news h2{
+        font-size: 30px;
+    }
+    .news p{
+        font-size: 15px;
+    }
+    .productinfo h2{
+        font-size: 30px;
+    }
+    .recommendations h2{
+        font-size: 25px;
+    }
+    .recommendations p{
+        font-size: 15px;
+    }
+    .aboutmeinfo h2{
+        font-size: 30px;
+    }
+    .shop{
+        flex-direction: column;
+    }
+    .shop img{
+        width: 100%;
+    }
+    .product{
+        flex-direction: column;
+    }
+    .product img{
+        width: 100%;
+    }
+    .info{
+        width: 100%;
+        padding: 40px 0;
+    }
+    .info h2{
+        font-size: 25px;
+    }
+    .product-1{
+        flex-direction: column;
+        padding: 60px 0px;
+    }
+    .product-1 div{
+        margin-bottom: 30px;
+    }
+    .introduction{
+        flex-direction: column;
+    }
+    .introduction img{
+        width: 100%;
+    }
+    .introduction h2{
+        font-size: 20px;
+    }
+    .introduction p{
+        font-size: 10px;
+    }
+    .imgtext{
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .newsletter p{
+        font-size: 12px;
+    }
+    .find p{
+        font-size: 15px;
+    }
+    .logotext h2{
+        font-size: 20px;
+    }
+}
 @media screen and (min-width: 768px) and (max-width:1279px){
     header ul{
         display: none;
@@ -559,7 +726,7 @@ background-color: #acacac;
         left: 50%;
         transform: translateX(-50%);
     }
-    .menu{
+    #menuToggle{
         display: block;
     }
     .news h2{
